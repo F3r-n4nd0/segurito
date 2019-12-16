@@ -1,0 +1,97 @@
+swagger: '2.0'
+info:
+  description: Camacho API
+  version: 1.0.0
+  title: Camacho API
+  # put the contact info for your development or API team
+  contact:
+    email: 337n4nd0@gmail.com
+
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+
+# tags are used for organizing operations
+
+paths:
+  /eventos/{id_usuario}:
+    get:
+      summary: traer los eventos de un usuario
+      operationId: traerEventos
+      parameters:
+        - in: path
+          name: id_usuario
+          type: string
+          required: true
+          description: Id del usuario
+      produces:
+        - application/json
+      responses:
+        200:
+          description: lista eventos del usuario
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Eventos'
+        400:
+          description: bad input parameter
+  /eventos/{id_usuario}/estado:
+    get:
+      summary: devuelve el estado actual del usuario
+      operationId: consultarEstado
+      parameters:
+        - in: path
+          name: id_usuario
+          type: string
+          required: true
+          description: Id del usuario
+      produces:
+        - application/json
+      responses:
+        200:
+          description: estado actual del usuario
+          schema:
+            type: object
+            properties:
+              estado:
+                $ref: '#/definitions/EstadoUsuario'
+        400:
+          description: bad input parameter
+definitions:
+  Eventos:
+    type: object
+    required:
+      - id
+      - usuario
+      - tipo
+      - fecha
+    properties:
+      id:
+        type: string
+        format: uuid
+        example: d290f1ee-6c54-4b01-90e6-d701748f0851
+      usuario:
+        type: string
+        example: FLUNA
+      tipo:
+        $ref: '#/definitions/TipoEvento'
+      fecha:
+        type: string
+        format: date-time
+        example: 2016-08-29T09:12:33.001Z
+  TipoEvento:
+    type: string
+    enum:
+      - entrada
+      - salida
+  EstadoUsuario:
+    type: string
+    enum:
+      - trabajando
+      - descanso
+      - no_registrado
+# Added by API Auto Mocking Plugin
+host: virtserver.swaggerhub.com
+basePath: /F3rn4nd0/CamachoAPI/1.0.0
+schemes:
+  - http

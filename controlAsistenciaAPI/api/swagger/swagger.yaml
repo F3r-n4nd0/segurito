@@ -1,0 +1,85 @@
+swagger: '2.0'
+info:
+  description: This is a simple API
+  version: 1.0.0
+  title: API de control de controlasistencia
+  # put the contact info for your development or API team
+  contact:
+    email: 337n4nd0@gmail.com
+
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+
+paths:
+  /entradas:
+    post:
+      summary: registra la controlasistencia del personal
+      operationId: registrarEntrada
+      description: registra la controlasistencia del personal por medio de su codigo (7 caracteres)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: usuario
+          description: Datos del usuario
+          schema:
+            type: object
+            properties:
+              codigo_usuario:
+                type: string
+                minLength: 7
+                maxLength: 7
+            required:
+              - codigo_usuario
+      responses:
+        '201':
+          description: confirmacion creacion de registro
+        '400':
+          description: parametro invalido
+        '401':
+          description: codigo de usuario incorrecto
+        '409':
+          description: usuario en estado incorrecto para registro de controlasistencia
+        '500':
+          description: error interno
+  /salidas:
+    post:
+      summary: registra la salida del personal
+      operationId: registrarSalida
+      description: registra la salida del personal por medio de su codigo (7 caracteres)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: usuario
+          description: Datos del usuario
+          schema:
+            type: object
+            properties:
+              codigo_usuario:
+                type: string
+                minLength: 7
+                maxLength: 7
+            required:
+              - codigo_usuario
+      responses:
+        '201':
+          description: confirmacion creacion de registro
+        '400':
+          description: parametro invalido
+        '401':
+          description: codigo de usuario incorrecto
+        '409':
+          description: usuario en estado incorrecto para registro de salida
+        '500':
+          description: error interno
+# Added by API Auto Mocking Plugin
+host: virtserver.swaggerhub.com
+basePath: /F3rn4nd0/ControlAsistencia/1.0.0
+schemes:
+  - http

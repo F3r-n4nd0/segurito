@@ -1,0 +1,100 @@
+package controlasistencia
+
+import (
+	"context"
+	"controlAsistenciaAPI/modelos"
+	"time"
+)
+
+type controlAsistenciaCasoDeUso struct {
+	contextTimeout          time.Duration
+	servicioAutentification ServicioAutentification
+	servicioRegistroEventos ServicioRegistroEventos
+	servicioEstadoUsuario   ServicioEstadoUsuario
+	repositorioEventos      RepositorioEventos
+}
+
+func NuevoCasoDeUsoControlAsistencia(timeout time.Duration,
+	servicioAutentification ServicioAutentification,
+	servicioRegistroEventos ServicioRegistroEventos,
+	servicioEstadoUsuario ServicioEstadoUsuario,
+	repositorioEventos RepositorioEventos,
+) CasoDeUso {
+	return &controlAsistenciaCasoDeUso{
+		contextTimeout:          timeout,
+		servicioAutentification: servicioAutentification,
+		servicioRegistroEventos: servicioRegistroEventos,
+		servicioEstadoUsuario:   servicioEstadoUsuario,
+		repositorioEventos:      repositorioEventos,
+	}
+}
+
+func (c controlAsistenciaCasoDeUso) RegistroEntrada(ctx context.Context, codigoUsuario string) error {
+	usuario, err := c.servicioAutentification.AutentificarUsuario(ctx, codigoUsuario)
+	if err != nil {
+		return err
+	}
+	if usuario == nil {
+		return &modelos.ErrorCodigoUsuarioInvalido{}
+	}
+	estado, err := c.servicioEstadoUsuario.TraerEstadoActualDelUsuario(ctx, *usuario)
+	switch estado {
+	case modelos.EstadoAsistenciaDescanso,
+		modelos.EstadoAsistenciaNoRegistrado:
+		err := c.registrarEntrada(ctx, *usuario)
+		if err != nil {
+			return err
+		}
+	case modelos.EstadoAsistenciaTrabajando:
+		return &modelos.ErrorEstadoUsuarioInvalido{}
+	}
+	return nil
+}
+
+func (c controlAsistenciaCasoDeUso) registrarEntrada(ctx context.Context, usuario modelos.Usuario) error {
+	currentTime := time.Now()
+	err := c.repositorioEventos.AlmacenarEntrada(ctx, usuario, currentTime)
+	if err != nil {
+		return err
+	}
+	err = c.servicioRegistroEventos.RegistrarEntrada(ctx, usuario, currentTime)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+func (c controlAsistenciaCasoDeUso) RegistroSalida(ctx context.Context, codigoUsuario string) error {
+	usuario, err := c.servicioAutentification.AutentificarUsuario(ctx, codigoUsuario)
+	if err != nil {
+		return err
+	}
+	if usuario == nil {
+		return &modelos.ErrorCodigoUsuarioInvalido{}
+	}
+	estado, err := c.servicioEstadoUsuario.TraerEstadoActualDelUsuario(ctx, *usuario)
+	switch estado {
+	case modelos.EstadoAsistenciaTrabajando,
+		modelos.EstadoAsistenciaNoRegistrado:
+		err := c.registrarEntrada(ctx, *usuario)
+		if err != nil {
+			return err
+		}
+	case modelos.EstadoAsistenciaDescanso:
+		return &modelos.ErrorEstadoUsuarioInvalido{}
+	}
+	return nil
+}
+
+func (c controlAsistenciaCasoDeUso) registrarSalida(ctx context.Context, usuario modelos.Usuario) error {
+	currentTime := time.Now()
+	err := c.repositorioEventos.AlmacenarSalida(ctx, usuario, currentTime)
+	if err != nil {
+		return err
+	}
+	err = c.servicioRegistroEventos.RegistrarSalida(ctx, usuario, currentTime)
+	if err != nil {
+		return err
+	}
+	return nil
+}
