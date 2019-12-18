@@ -3,6 +3,8 @@
 package restapi
 
 import (
+	"camachoAPI/api/models"
+	"camachoAPI/consultaEventos"
 	"crypto/tls"
 	"net/http"
 
@@ -33,16 +35,20 @@ func configureAPI(api *operations.CamachoAPI) http.Handler {
 
 	api.JSONProducer = runtime.JSONProducer()
 
-	if api.ConsultarEstadoHandler == nil {
-		api.ConsultarEstadoHandler = operations.ConsultarEstadoHandlerFunc(func(params operations.ConsultarEstadoParams) middleware.Responder {
-			return middleware.NotImplemented("operation .ConsultarEstado has not yet been implemented")
+	NewRE
+
+	consultaEventos.NuevoCasoDeUsoConsultaEventos(2)
+
+	api.ConsultarEstadoHandler = operations.ConsultarEstadoHandlerFunc(func(params operations.ConsultarEstadoParams) middleware.Responder {
+
+		return operations.NewConsultarEstadoOK().WithPayload(&operations.ConsultarEstadoOKBody{
+			Estado: models.EstadoUsuarioTrabajando,
 		})
-	}
-	if api.TraerEventosHandler == nil {
-		api.TraerEventosHandler = operations.TraerEventosHandlerFunc(func(params operations.TraerEventosParams) middleware.Responder {
-			return middleware.NotImplemented("operation .TraerEventos has not yet been implemented")
-		})
-	}
+	})
+
+	api.TraerEventosHandler = operations.TraerEventosHandlerFunc(func(params operations.TraerEventosParams) middleware.Responder {
+		return operations.NewTraerEventosOK()
+	})
 
 	api.ServerShutdown = func() {}
 

@@ -21,8 +21,7 @@ type ServicioRegistroEventos interface {
 }
 
 type RepositorioEventos interface {
-	AlmacenarEntrada(ctx context.Context, usuario modelos.Usuario, date time.Time) error
-	AlmacenarSalida(ctx context.Context, usuario modelos.Usuario, date time.Time) error
+	AlmacenarEvento(ctx context.Context, evento modelos.Evento) error
 }
 
 type ServicioEstadoUsuario interface {

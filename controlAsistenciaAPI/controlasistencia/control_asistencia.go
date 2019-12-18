@@ -4,6 +4,8 @@ import (
 	"context"
 	"controlAsistenciaAPI/modelos"
 	"time"
+
+	"github.com/google/uuid"
 )
 
 type controlAsistenciaCasoDeUso struct {
@@ -53,7 +55,17 @@ func (c controlAsistenciaCasoDeUso) RegistroEntrada(ctx context.Context, codigoU
 
 func (c controlAsistenciaCasoDeUso) registrarEntrada(ctx context.Context, usuario modelos.Usuario) error {
 	currentTime := time.Now()
-	err := c.repositorioEventos.AlmacenarEntrada(ctx, usuario, currentTime)
+	newUUID, err := uuid.NewUUID()
+	if err != nil {
+		return err
+	}
+	evento := modelos.Evento{
+		ID:            newUUID.String(),
+		NombreUsuario: usuario.ID,
+		Tipo:          modelos.EntradaTipoEvento,
+		Fecha:         time.Time{},
+	}
+	err = c.repositorioEventos.AlmacenarEvento(ctx, evento)
 	if err != nil {
 		return err
 	}
@@ -88,7 +100,17 @@ func (c controlAsistenciaCasoDeUso) RegistroSalida(ctx context.Context, codigoUs
 
 func (c controlAsistenciaCasoDeUso) registrarSalida(ctx context.Context, usuario modelos.Usuario) error {
 	currentTime := time.Now()
-	err := c.repositorioEventos.AlmacenarSalida(ctx, usuario, currentTime)
+	newUUID, err := uuid.NewUUID()
+	if err != nil {
+		return err
+	}
+	evento := modelos.Evento{
+		ID:            newUUID.String(),
+		NombreUsuario: usuario.ID,
+		Tipo:          modelos.SalidaTipoEvento,
+		Fecha:         time.Time{},
+	}
+	err = c.repositorioEventos.AlmacenarEvento(ctx, evento)
 	if err != nil {
 		return err
 	}

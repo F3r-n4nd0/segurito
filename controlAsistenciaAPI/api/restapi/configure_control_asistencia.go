@@ -7,9 +7,12 @@ import (
 	"controlAsistenciaAPI/controlasistencia"
 	"controlAsistenciaAPI/modelos"
 	"controlAsistenciaAPI/repositorio"
-	"controlAsistenciaAPI/servicios"
+	"controlAsistenciaAPI/servicios/camacho"
+	"controlAsistenciaAPI/servicios/mesa"
+	"controlAsistenciaAPI/servicios/pumari"
 	"crypto/tls"
 	"net/http"
+	"os"
 
 	errors "github.com/go-openapi/errors"
 	runtime "github.com/go-openapi/runtime"
@@ -32,16 +35,22 @@ func configureAPI(api *operations.ControlAsistenciaAPI) http.Handler {
 	// Expected interface func(string, ...interface{})
 	//
 	// Example:
-	// api.Logger = log.Printf
+	//api.Logger = log.Printf
 
 	api.JSONConsumer = runtime.JSONConsumer()
 
 	api.JSONProducer = runtime.JSONProducer()
 
-	servicioAutentificacion := servicios.NuevoServicioDeAutentificacionMesa(2, "./mocks/")
-	servicioRegistroEventos := servicios.NuevoServicioRegistroDeEventosPumari(2)
-	servicioEstadoUsaurio := servicios.NuevoServicioEstadoUsuarioCamacho(2)
-	repositorioEventos := repositorio.NuevoRepositorioEventosMongoDB()
+	mesaPath := getenv("MESA_PATH", "./mocks/")
+	mongoDBURL := getenv("MONGO_DB_URL", "mongodb://localhost:27017")
+	rabbitMqHost := getenv("RABBIT_MQ_HOST", "127.0.0.1")
+	rabbitMqPort := getenv("RABBIT_MQ_PORT", "5672")
+	camachoAPIHost := getenv("CAMACHO_API_HOST", "127.0.0.1:8080")
+
+	servicioAutentificacion := mesa.NuevoServicioDeAutentificacionMesa(2, mesaPath)
+	servicioRegistroEventos := pumari.NuevoServicioRegistroDeEventosPumari(2, rabbitMqHost, rabbitMqPort)
+	servicioEstadoUsaurio := camacho.NuevoServicioEstadoUsuarioCamacho(2, camachoAPIHost)
+	repositorioEventos := repositorio.NuevoRepositorioEventosMongoDB(mongoDBURL)
 	casoDeUsoControlAsistencia := controlasistencia.NuevoCasoDeUsoControlAsistencia(2,
 		servicioAutentificacion,
 		servicioRegistroEventos,
@@ -105,4 +114,12 @@ func setupMiddlewares(handler http.Handler) http.Handler {
 // So this is a good place to plug in a panic handling middleware, logging and metrics
 func setupGlobalMiddleware(handler http.Handler) http.Handler {
 	return handler
+}
+
+func getenv(key, fallback string) string {
+	value := os.Getenv(key)
+	if len(value) == 0 {
+		return fallback
+	}
+	return value
 }
