@@ -2,37 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9987d4dd-48f0-47a9-8d8e-627499cdcb54" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../camachoAPI/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../camachoAPI/consultaEventos/consulta_eventos.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../camachoAPI/modelos/evento.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../camachoAPI/modelos/tipo_evento.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../camachoAPI/repositorio/repositorio_eventos_mongodb.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/generate_code_api_client_swagger.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/servicios/camacho/swagger/swagger.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/servicios/pumari/servicio_registro_eventos_pumari.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/wait_for_rabbitmq.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../camachoAPI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../camachoAPI/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../camachoAPI/api/models/eventos.go" beforeDir="false" afterPath="$PROJECT_DIR$/../camachoAPI/api/models/eventos.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../camachoAPI/api/models/tipo_evento.go" beforeDir="false" afterPath="$PROJECT_DIR$/../camachoAPI/api/models/tipo_evento.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../camachoAPI/api/restapi/configure_camacho.go" beforeDir="false" afterPath="$PROJECT_DIR$/../camachoAPI/api/restapi/configure_camacho.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../camachoAPI/consultaEventos/interfaces.go" beforeDir="false" afterPath="$PROJECT_DIR$/../camachoAPI/consultaEventos/interfaces.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../camachoAPI/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/../camachoAPI/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../camachoAPI/models/estado_asistencia.go" beforeDir="false" afterPath="$PROJECT_DIR$/../camachoAPI/modelos/estado_asistencia.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../camachoAPI/models/evento.go" beforeDir="false" afterPath="$PROJECT_DIR$/modelos/evento.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../camachoAPI/models/tipo_evento.go" beforeDir="false" afterPath="$PROJECT_DIR$/modelos/tipo_evento.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/restapi/configure_control_asistencia.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/restapi/configure_control_asistencia.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controlasistencia/control_asistencia.go" beforeDir="false" afterPath="$PROJECT_DIR$/controlasistencia/control_asistencia.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controlasistencia/interfaces.go" beforeDir="false" afterPath="$PROJECT_DIR$/controlasistencia/interfaces.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repositorio/repositorio_eventos_mongodb.go" beforeDir="false" afterPath="$PROJECT_DIR$/repositorio/repositorio_eventos_mongodb.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicios/autentificacion_local_mesa.go" beforeDir="false" afterPath="$PROJECT_DIR$/servicios/mesa/autentificacion_local_mesa.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicios/servicio_estado_usuario_camacho.go" beforeDir="false" afterPath="$PROJECT_DIR$/servicios/camacho/servicio_estado_usuario_camacho.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicios/servicio_registro_eventos_pumari.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../structurizr/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../structurizr/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -146,12 +120,47 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@65367a9f" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@29505d95" type="9fbbdea:ServiceModel$ServiceNode" />
             </path>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@65367a9f" type="9fbbdea:ServiceModel$ServiceNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@193afe7c" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@29505d95" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@37605c29" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@29505d95" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@37605c29" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@580f082e" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@29505d95" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@37605c29" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@78cbe292" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@29505d95" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@37605c29" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@6c63cd76" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@29505d95" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@37605c29" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@acf85fc" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@29505d95" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@37605c29" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@10ec0462" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@29505d95" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@2a314f1d" type="9fbbdea:ServiceModel$ServiceNode" />
             </path>
           </expand>
           <select />

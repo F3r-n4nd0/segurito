@@ -1,13 +1,13 @@
 version: '3.7'
 services:
 
-  mongo:
-    image: mongo
-    hostname: mongodb-server
-
   rabbit_mq:
     image: rabbitmq 
     hostname: rabbit_mq
+
+  mongo:
+    image: mongo
+    hostname: mongodb-server
 
   camacho_api:
     build: ./camachoAPI
@@ -20,6 +20,15 @@ services:
     ports:
       - '9090:8080'
 
+  evo:
+    build: https://github.com/wilsoncrespo/segurito-evo.git
+    environment: 
+      swagger.assistance.control.url: https://control-asistencia-server/F3rn4nd0/ControlAsistencia/1.0.0/
+    links:
+      - control_asistencia
+    ports:
+      - "8081:8080"
+      
   control_asistencia:
     build: ./controlAsistenciaAPI
     hostname: control-asistencia-server
@@ -31,19 +40,13 @@ services:
       RABBIT_MQ_HOST: 'rabbit_mq'
       RABBIT_MQ_PORT: '5672'
       CAMACHO_API_HOST: camacho-api:8080
+    command: 
+      ["./scripts/wait_for_rabbitmq.sh", "control-asistencia-server"]
     links:
       - mongo
       - rabbit_mq
     depends_on:
+      - mongo
       - rabbit_mq
     ports:
       - '8080:8080'
-      
-  evo:
-    build: https://github.com/wilsoncrespo/segurito-evo.git
-    environment: 
-      swagger.assistance.control.url: https://control-asistencia-server/F3rn4nd0/ControlAsistencia/1.0.0/
-    links:
-        - control_asistencia
-    ports:
-      - "8081:8081"
