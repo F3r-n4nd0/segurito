@@ -35,8 +35,6 @@ func configureAPI(api *operations.CamachoAPI) http.Handler {
 
 	api.JSONProducer = runtime.JSONProducer()
 
-	NewRE
-
 	consultaEventos.NuevoCasoDeUsoConsultaEventos(2)
 
 	api.ConsultarEstadoHandler = operations.ConsultarEstadoHandlerFunc(func(params operations.ConsultarEstadoParams) middleware.Responder {
