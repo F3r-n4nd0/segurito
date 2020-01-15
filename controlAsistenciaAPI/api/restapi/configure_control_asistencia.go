@@ -11,6 +11,7 @@ import (
 	"controlAsistenciaAPI/servicios/mesa"
 	"controlAsistenciaAPI/servicios/pumari"
 	"crypto/tls"
+	"log"
 	"net/http"
 	"os"
 
@@ -58,8 +59,9 @@ func configureAPI(api *operations.ControlAsistenciaAPI) http.Handler {
 		repositorioEventos)
 
 	api.RegistrarEntradaHandler = operations.RegistrarEntradaHandlerFunc(func(params operations.RegistrarEntradaParams) middleware.Responder {
-		err := casoDeUsoControlAsistencia.RegistroEntrada(context.Background(), *params.Usuario.CodigoUsuario)
+		err := casoDeUsoControlAsistencia.RegistroEntrada(context.Background(), *params.Usuario.Code)
 		if err != nil {
+			log.Print(err.Error())
 			switch err.(type) {
 			case *modelos.ErrorCodigoUsuarioInvalido:
 				return operations.NewRegistrarEntradaUnauthorized()
@@ -73,8 +75,9 @@ func configureAPI(api *operations.ControlAsistenciaAPI) http.Handler {
 	})
 
 	api.RegistrarSalidaHandler = operations.RegistrarSalidaHandlerFunc(func(params operations.RegistrarSalidaParams) middleware.Responder {
-		err := casoDeUsoControlAsistencia.RegistroSalida(context.Background(), *params.Usuario.CodigoUsuario)
+		err := casoDeUsoControlAsistencia.RegistroSalida(context.Background(), *params.Usuario.Code)
 		if err != nil {
+			log.Print(err.Error())
 			switch err.(type) {
 			case *modelos.ErrorCodigoUsuarioInvalido:
 				return operations.NewRegistrarSalidaUnauthorized()
@@ -113,7 +116,14 @@ func setupMiddlewares(handler http.Handler) http.Handler {
 // The middleware configuration happens before anything, this middleware also applies to serving the swagger.json document.
 // So this is a good place to plug in a panic handling middleware, logging and metrics
 func setupGlobalMiddleware(handler http.Handler) http.Handler {
-	return handler
+	return uiMiddleware(handler)
+}
+
+func uiMiddleware(handler http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		log.Print(r.URL.Path)
+		handler.ServeHTTP(w, r)
+	})
 }
 
 func getenv(key, fallback string) string {

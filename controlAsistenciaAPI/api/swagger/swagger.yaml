@@ -28,12 +28,12 @@ paths:
           schema:
             type: object
             properties:
-              codigo_usuario:
+              code:
                 type: string
                 minLength: 7
                 maxLength: 7
             required:
-              - codigo_usuario
+              - code
       responses:
         '201':
           description: confirmacion creacion de registro
@@ -61,12 +61,12 @@ paths:
           schema:
             type: object
             properties:
-              codigo_usuario:
+              code:
                 type: string
                 minLength: 7
                 maxLength: 7
             required:
-              - codigo_usuario
+              - code
       responses:
         '201':
           description: confirmacion creacion de registro

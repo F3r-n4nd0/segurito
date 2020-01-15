@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
 
-
-go build mesa.go
+go build -o ./mocks/mesa ./mocks/mesa.go

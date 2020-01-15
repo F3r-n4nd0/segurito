@@ -49,6 +49,7 @@ func (s servicioRegistroDeEventosPumari) RegistrarEntrada(ctx context.Context, u
 	}
 	body, err := data.Marshal()
 	if err != nil {
+		log.Print(err)
 		return err
 	}
 	return s.send(body)
@@ -62,6 +63,7 @@ func (s servicioRegistroDeEventosPumari) RegistrarSalida(ctx context.Context, us
 	}
 	body, err := data.Marshal()
 	if err != nil {
+		log.Print(err)
 		return err
 	}
 	return s.send(body)
@@ -79,7 +81,7 @@ func configureRabbitMq(rabbitMqHost string, rabbitMqPort string) (*amqp.Channel,
 		log.Panic(err)
 	}
 	//defer ch.Close()
-	routingKey := "kudos"
+	routingKey := "segurito"
 	q, err := ch.QueueDeclare(
 		routingKey,
 		false,
@@ -107,5 +109,6 @@ func (s servicioRegistroDeEventosPumari) send(body []byte) error {
 	if err != nil {
 		return err
 	}
+	log.Print("MENSAJE ENVIADO A QUEUE")
 	return nil
 }

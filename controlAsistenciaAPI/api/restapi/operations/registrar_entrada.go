@@ -67,18 +67,18 @@ func (o *RegistrarEntrada) ServeHTTP(rw http.ResponseWriter, r *http.Request) {
 // swagger:model RegistrarEntradaBody
 type RegistrarEntradaBody struct {
 
-	// codigo usuario
+	// code
 	// Required: true
 	// Max Length: 7
 	// Min Length: 7
-	CodigoUsuario *string `json:"codigo_usuario"`
+	Code *string `json:"code"`
 }
 
 // Validate validates this registrar entrada body
 func (o *RegistrarEntradaBody) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := o.validateCodigoUsuario(formats); err != nil {
+	if err := o.validateCode(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -88,17 +88,17 @@ func (o *RegistrarEntradaBody) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (o *RegistrarEntradaBody) validateCodigoUsuario(formats strfmt.Registry) error {
+func (o *RegistrarEntradaBody) validateCode(formats strfmt.Registry) error {
 
-	if err := validate.Required("usuario"+"."+"codigo_usuario", "body", o.CodigoUsuario); err != nil {
+	if err := validate.Required("usuario"+"."+"code", "body", o.Code); err != nil {
 		return err
 	}
 
-	if err := validate.MinLength("usuario"+"."+"codigo_usuario", "body", string(*o.CodigoUsuario), 7); err != nil {
+	if err := validate.MinLength("usuario"+"."+"code", "body", string(*o.Code), 7); err != nil {
 		return err
 	}
 
-	if err := validate.MaxLength("usuario"+"."+"codigo_usuario", "body", string(*o.CodigoUsuario), 7); err != nil {
+	if err := validate.MaxLength("usuario"+"."+"code", "body", string(*o.Code), 7); err != nil {
 		return err
 	}
 

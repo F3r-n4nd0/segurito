@@ -2,13 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b5608905-2261-4451-93a4-be50059324ff" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../controlAsistenciaAPI/scripts/wait_for_rabbitmq.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pumari/.idea/pumari.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pumari/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pumari/cmd/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pumari/log/interfaces.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pumari/log/log.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pumari/mocks/pumari.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pumari/modelos/mensaje_evento.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pumari/modelos/tipo_evento.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pumari/scripts/generate_pumari_mock.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pumari/scripts/wait_for_rabbitmq.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pumari/servicios/pumari/log_local_pumari.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pumari/servicios/queue/rabbitmq_handle.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/restapi/configure_camacho.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/restapi/configure_camacho.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repositorio/repositorio_eventos_mongodb.go" beforeDir="false" afterPath="$PROJECT_DIR$/repositorio/repositorio_eventos_mongodb.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../controlAsistenciaAPI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../controlAsistenciaAPI/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../controlAsistenciaAPI/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../controlAsistenciaAPI/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../controlAsistenciaAPI/api/restapi/configure_control_asistencia.go" beforeDir="false" afterPath="$PROJECT_DIR$/../controlAsistenciaAPI/api/restapi/configure_control_asistencia.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../controlAsistenciaAPI/api/restapi/embedded_spec.go" beforeDir="false" afterPath="$PROJECT_DIR$/../controlAsistenciaAPI/api/restapi/embedded_spec.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../controlAsistenciaAPI/api/restapi/operations/registrar_entrada.go" beforeDir="false" afterPath="$PROJECT_DIR$/../controlAsistenciaAPI/api/restapi/operations/registrar_entrada.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../controlAsistenciaAPI/api/restapi/operations/registrar_salida.go" beforeDir="false" afterPath="$PROJECT_DIR$/../controlAsistenciaAPI/api/restapi/operations/registrar_salida.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../controlAsistenciaAPI/api/swagger/swagger.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../controlAsistenciaAPI/api/swagger/swagger.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../controlAsistenciaAPI/controlasistencia/control_asistencia.go" beforeDir="false" afterPath="$PROJECT_DIR$/../controlAsistenciaAPI/controlasistencia/control_asistencia.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../controlAsistenciaAPI/mocks/mesa" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../controlAsistenciaAPI/scripts/generate_mesa_mock.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../controlAsistenciaAPI/scripts/generate_mesa_mock.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../controlAsistenciaAPI/servicios/camacho/servicio_estado_usuario_camacho.go" beforeDir="false" afterPath="$PROJECT_DIR$/../controlAsistenciaAPI/servicios/camacho/servicio_estado_usuario_camacho.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../controlAsistenciaAPI/servicios/pumari/servicio_registro_eventos_pumari.go" beforeDir="false" afterPath="$PROJECT_DIR$/../controlAsistenciaAPI/servicios/pumari/servicio_registro_eventos_pumari.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose.yml" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,7 +42,7 @@
       </list>
     </option>
   </component>
-  <component name="GOROOT" path="/usr/local/Cellar/go/1.13.4/libexec" />
+  <component name="GOROOT" path="/usr/local/Cellar/go/1.13.6/libexec" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
@@ -30,11 +51,17 @@
   </component>
   <component name="ProjectId" id="1V4zVGNZKa3bJ6ILsuPIaylzhND" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.import.settings.migrated" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/repositorio" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
   </component>
@@ -46,15 +73,46 @@
       <recent name="$PROJECT_DIR$/api" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
+  <component name="RunManager">
+    <configuration name="go build camachoAPI/api/cmd/camacho-server" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="camachoAPI" />
+      <working_directory value="$PROJECT_DIR$" />
+      <envs>
+        <env name="PORT" value="9191" />
+        <env name="HOST" value="0.0.0.0" />
+        <env name="MONGO_DB_URL" value="mongodb://127.0.0.1:27017" />
+      </envs>
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/api/cmd/camacho-server/main.go" />
+      <package value="camachoAPI/api/cmd/camacho-server" />
+      <directory value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
       <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
+        <item itemvalue="Go Build.go build camachoAPI/api/cmd/camacho-server" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Docker" type="9fbbdea:ServiceModel$ServiceNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Docker" type="9fbbdea:ServiceModel$ServiceNode" />
+                <item name="Images" type="9fbbdea:ServiceModel$ServiceNode" />
+              </path>
+            </expand>
+            <select />
+          </treeState>
+        </serviceView>
       </list>
     </option>
   </component>
@@ -77,5 +135,67 @@
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
     <proxy>direct</proxy>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="442" y="176" key="#GOROOT" timestamp="1579018719288">
+      <screen x="0" y="23" width="1920" height="985" />
+    </state>
+    <state x="442" y="176" key="#GOROOT/0.23.1920.985/-1440.23.1440.877@0.23.1920.985" timestamp="1579018719288" />
+    <state x="424" y="202" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1579070769257">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="424" y="202" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080/-1440.0.1440.900@0.0.1920.1080" timestamp="1579070769257" />
+    <state x="714" y="312" key="EnvironmentVariablesDialog" timestamp="1579070768340">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="714" y="312" key="EnvironmentVariablesDialog/0.0.1920.1080/-1440.0.1440.900@0.0.1920.1080" timestamp="1579070768339" />
+    <state width="1878" height="226" key="GridCell.Tab.0.bottom" timestamp="1579096802376">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="226" key="GridCell.Tab.0.bottom/0.0.1920.1080/-1440.0.1440.900@0.0.1920.1080" timestamp="1579096802376" />
+    <state width="1878" height="314" key="GridCell.Tab.0.bottom/0.23.1920.985/-1440.23.1440.877@0.23.1920.985" timestamp="1579074440608" />
+    <state width="1878" height="226" key="GridCell.Tab.0.center" timestamp="1579096802373">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="226" key="GridCell.Tab.0.center/0.0.1920.1080/-1440.0.1440.900@0.0.1920.1080" timestamp="1579096802373" />
+    <state width="1878" height="314" key="GridCell.Tab.0.center/0.23.1920.985/-1440.23.1440.877@0.23.1920.985" timestamp="1579074440606" />
+    <state width="1878" height="226" key="GridCell.Tab.0.left" timestamp="1579096802369">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="226" key="GridCell.Tab.0.left/0.0.1920.1080/-1440.0.1440.900@0.0.1920.1080" timestamp="1579096802369" />
+    <state width="1878" height="314" key="GridCell.Tab.0.left/0.23.1920.985/-1440.23.1440.877@0.23.1920.985" timestamp="1579074440603" />
+    <state width="1878" height="226" key="GridCell.Tab.0.right" timestamp="1579096802375">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="226" key="GridCell.Tab.0.right/0.0.1920.1080/-1440.0.1440.900@0.0.1920.1080" timestamp="1579096802375" />
+    <state width="1878" height="314" key="GridCell.Tab.0.right/0.23.1920.985/-1440.23.1440.877@0.23.1920.985" timestamp="1579074440607" />
+    <state width="1878" height="226" key="GridCell.Tab.1.bottom" timestamp="1579096802381">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="226" key="GridCell.Tab.1.bottom/0.0.1920.1080/-1440.0.1440.900@0.0.1920.1080" timestamp="1579096802381" />
+    <state width="1878" height="314" key="GridCell.Tab.1.bottom/0.23.1920.985/-1440.23.1440.877@0.23.1920.985" timestamp="1579074440526" />
+    <state width="1878" height="226" key="GridCell.Tab.1.center" timestamp="1579096802379">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="226" key="GridCell.Tab.1.center/0.0.1920.1080/-1440.0.1440.900@0.0.1920.1080" timestamp="1579096802379" />
+    <state width="1878" height="314" key="GridCell.Tab.1.center/0.23.1920.985/-1440.23.1440.877@0.23.1920.985" timestamp="1579074440524" />
+    <state width="1878" height="226" key="GridCell.Tab.1.left" timestamp="1579096802378">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="226" key="GridCell.Tab.1.left/0.0.1920.1080/-1440.0.1440.900@0.0.1920.1080" timestamp="1579096802378" />
+    <state width="1878" height="314" key="GridCell.Tab.1.left/0.23.1920.985/-1440.23.1440.877@0.23.1920.985" timestamp="1579074440523" />
+    <state width="1878" height="226" key="GridCell.Tab.1.right" timestamp="1579096802380">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="226" key="GridCell.Tab.1.right/0.0.1920.1080/-1440.0.1440.900@0.0.1920.1080" timestamp="1579096802380" />
+    <state width="1878" height="314" key="GridCell.Tab.1.right/0.23.1920.985/-1440.23.1440.877@0.23.1920.985" timestamp="1579074440525" />
+    <state width="960" height="540" key="XDebugger.FullValuePopup" timestamp="1579074181582">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="960" height="540" key="XDebugger.FullValuePopup/0.0.1920.1080/-1440.0.1440.900@0.0.1920.1080" timestamp="1579074181582" />
+    <state x="640" y="297" width="639" height="486" key="find.popup" timestamp="1579072504958">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="640" y="297" width="639" height="486" key="find.popup/0.0.1920.1080/-1440.0.1440.900@0.0.1920.1080" timestamp="1579072504958" />
   </component>
 </project>

@@ -40,6 +40,9 @@ func (c controlAsistenciaCasoDeUso) RegistroEntrada(ctx context.Context, codigoU
 		return &modelos.ErrorCodigoUsuarioInvalido{}
 	}
 	estado, err := c.servicioEstadoUsuario.TraerEstadoActualDelUsuario(ctx, *usuario)
+	if err != nil {
+		return err
+	}
 	switch estado {
 	case modelos.EstadoAsistenciaDescanso,
 		modelos.EstadoAsistenciaNoRegistrado:
@@ -63,7 +66,7 @@ func (c controlAsistenciaCasoDeUso) registrarEntrada(ctx context.Context, usuari
 		ID:            newUUID.String(),
 		NombreUsuario: usuario.ID,
 		Tipo:          modelos.EntradaTipoEvento,
-		Fecha:         time.Time{},
+		Fecha:         time.Now(),
 	}
 	err = c.repositorioEventos.AlmacenarEvento(ctx, evento)
 	if err != nil {
@@ -85,10 +88,13 @@ func (c controlAsistenciaCasoDeUso) RegistroSalida(ctx context.Context, codigoUs
 		return &modelos.ErrorCodigoUsuarioInvalido{}
 	}
 	estado, err := c.servicioEstadoUsuario.TraerEstadoActualDelUsuario(ctx, *usuario)
+	if err != nil {
+		return err
+	}
 	switch estado {
 	case modelos.EstadoAsistenciaTrabajando,
 		modelos.EstadoAsistenciaNoRegistrado:
-		err := c.registrarEntrada(ctx, *usuario)
+		err := c.registrarSalida(ctx, *usuario)
 		if err != nil {
 			return err
 		}
@@ -108,7 +114,7 @@ func (c controlAsistenciaCasoDeUso) registrarSalida(ctx context.Context, usuario
 		ID:            newUUID.String(),
 		NombreUsuario: usuario.ID,
 		Tipo:          modelos.SalidaTipoEvento,
-		Fecha:         time.Time{},
+		Fecha:         time.Now(),
 	}
 	err = c.repositorioEventos.AlmacenarEvento(ctx, evento)
 	if err != nil {

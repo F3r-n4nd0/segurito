@@ -19,7 +19,7 @@ type servicioEstadoUsuaarioCamacho struct {
 }
 
 func NuevoServicioEstadoUsuarioCamacho(timeout time.Duration, host string) controlasistencia.ServicioEstadoUsuario {
-	transport := httptransport.New(host, "", nil)
+	transport := httptransport.New(host, "/F3rn4nd0/CamachoAPI/1.0.0", []string{"http"})
 	client := client.New(transport, strfmt.Default)
 	return &servicioEstadoUsuaarioCamacho{
 		contextTimeout: timeout,

@@ -2,13 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9987d4dd-48f0-47a9-8d8e-627499cdcb54" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/scripts/wait_for_rabbitmq.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pumari/.idea/pumari.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pumari/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pumari/cmd/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pumari/log/interfaces.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pumari/log/log.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pumari/mocks/pumari.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pumari/modelos/mensaje_evento.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pumari/modelos/tipo_evento.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pumari/scripts/generate_pumari_mock.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pumari/scripts/wait_for_rabbitmq.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pumari/servicios/pumari/log_local_pumari.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pumari/servicios/queue/rabbitmq_handle.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../camachoAPI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../camachoAPI/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../camachoAPI/api/restapi/configure_camacho.go" beforeDir="false" afterPath="$PROJECT_DIR$/../camachoAPI/api/restapi/configure_camacho.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../camachoAPI/repositorio/repositorio_eventos_mongodb.go" beforeDir="false" afterPath="$PROJECT_DIR$/../camachoAPI/repositorio/repositorio_eventos_mongodb.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/restapi/configure_control_asistencia.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/restapi/configure_control_asistencia.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/restapi/embedded_spec.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/restapi/embedded_spec.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/restapi/operations/registrar_entrada.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/restapi/operations/registrar_entrada.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/restapi/operations/registrar_salida.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/restapi/operations/registrar_salida.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/swagger/swagger.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/swagger/swagger.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controlasistencia/control_asistencia.go" beforeDir="false" afterPath="$PROJECT_DIR$/controlasistencia/control_asistencia.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mocks/mesa" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/generate_mesa_mock.sh" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/generate_mesa_mock.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicios/camacho/servicio_estado_usuario_camacho.go" beforeDir="false" afterPath="$PROJECT_DIR$/servicios/camacho/servicio_estado_usuario_camacho.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicios/pumari/servicio_registro_eventos_pumari.go" beforeDir="false" afterPath="$PROJECT_DIR$/servicios/pumari/servicio_registro_eventos_pumari.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose.yml" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,7 +43,7 @@
       </list>
     </option>
   </component>
-  <component name="GOROOT" path="/usr/local/Cellar/go/1.13.4/libexec" />
+  <component name="GOROOT" path="/usr/local/Cellar/go/1.13.6/libexec" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
@@ -31,19 +52,31 @@
   </component>
   <component name="ProjectId" id="1V36DVktGlWloJConC68r59ULio" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="configurable.Global.GOPATH.is.expanded" value="true" />
     <property name="configurable.Module.GOPATH.is.expanded" value="false" />
     <property name="configurable.Project.GOPATH.is.expanded" value="true" />
     <property name="go.import.settings.migrated" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/scripts" />
+    <property name="go.sdk.automatically.set" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="go.sdk" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/scripts" />
+      <recent name="$PROJECT_DIR$/modelos" />
+      <recent name="$PROJECT_DIR$/models" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/servicios/camacho" />
       <recent name="$PROJECT_DIR$" />
@@ -51,23 +84,6 @@
       <recent name="$PROJECT_DIR$/servicios/mesa" />
       <recent name="$PROJECT_DIR$/servicios" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/scripts" />
-      <recent name="$PROJECT_DIR$/modelos" />
-      <recent name="$PROJECT_DIR$/models" />
-    </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager" selected="Go Build.go build controlAsistenciaAPI/api/cmd/control-asistencia-server">
     <configuration name="go build controlAsistenciaAPI/api/cmd/control-asistencia-server" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
@@ -88,10 +104,27 @@
       <directory value="$PROJECT_DIR$/" />
       <method v="2" />
     </configuration>
+    <configuration name="generate_code_api_swagger.sh" type="ShConfigurationType" temporary="true">
+      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/scripts/generate_code_api_swagger.sh" />
+      <option name="SCRIPT_OPTIONS" value="" />
+      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$/scripts" />
+      <option name="INTERPRETER_PATH" value="/bin/zsh" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="generate_mesa_mock.sh" type="ShConfigurationType" temporary="true">
+      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/scripts/generate_mesa_mock.sh" />
+      <option name="SCRIPT_OPTIONS" value="" />
+      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$/scripts" />
+      <option name="INTERPRETER_PATH" value="/bin/zsh" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
       <deployment type="dockerfile">
         <settings>
           <option name="buildCliOptions" value="" />
+          <option name="buildOnly" value="true" />
           <option name="command" value="" />
           <option name="containerName" value="" />
           <option name="entrypoint" value="" />
@@ -105,67 +138,59 @@
     <list>
       <item itemvalue="Docker.Dockerfile" />
       <item itemvalue="Go Build.go build controlAsistenciaAPI/api/cmd/control-asistencia-server" />
+      <item itemvalue="Shell Script.generate_mesa_mock.sh" />
+      <item itemvalue="Shell Script.generate_code_api_swagger.sh" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Go Build.go build controlAsistenciaAPI/api/cmd/control-asistencia-server" />
+        <item itemvalue="Shell Script.generate_code_api_swagger.sh" />
+        <item itemvalue="Shell Script.generate_mesa_mock.sh" />
         <item itemvalue="Docker.Dockerfile" />
       </list>
     </recent_temporary>
   </component>
   <component name="ServiceViewManager">
-    <option name="allServicesViewState">
-      <serviceView>
-        <treeState>
-          <expand>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@29505d95" type="9fbbdea:ServiceModel$ServiceNode" />
-            </path>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@29505d95" type="9fbbdea:ServiceModel$ServiceNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@37605c29" type="9fbbdea:ServiceModel$ServiceNode" />
-            </path>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@29505d95" type="9fbbdea:ServiceModel$ServiceNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@37605c29" type="9fbbdea:ServiceModel$ServiceNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@580f082e" type="9fbbdea:ServiceModel$ServiceNode" />
-            </path>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@29505d95" type="9fbbdea:ServiceModel$ServiceNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@37605c29" type="9fbbdea:ServiceModel$ServiceNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@78cbe292" type="9fbbdea:ServiceModel$ServiceNode" />
-            </path>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@29505d95" type="9fbbdea:ServiceModel$ServiceNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@37605c29" type="9fbbdea:ServiceModel$ServiceNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@6c63cd76" type="9fbbdea:ServiceModel$ServiceNode" />
-            </path>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@29505d95" type="9fbbdea:ServiceModel$ServiceNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@37605c29" type="9fbbdea:ServiceModel$ServiceNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@acf85fc" type="9fbbdea:ServiceModel$ServiceNode" />
-            </path>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@29505d95" type="9fbbdea:ServiceModel$ServiceNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@37605c29" type="9fbbdea:ServiceModel$ServiceNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@10ec0462" type="9fbbdea:ServiceModel$ServiceNode" />
-            </path>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@29505d95" type="9fbbdea:ServiceModel$ServiceNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@2a314f1d" type="9fbbdea:ServiceModel$ServiceNode" />
-            </path>
-          </expand>
-          <select />
-        </treeState>
-      </serviceView>
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <option name="contentProportion" value="0.19956733" />
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+        <serviceView>
+          <treeState>
+            <expand>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Docker" type="9fbbdea:ServiceModel$ServiceNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Docker" type="9fbbdea:ServiceModel$ServiceNode" />
+                <item name="Containers" type="9fbbdea:ServiceModel$ServiceNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Docker" type="9fbbdea:ServiceModel$ServiceNode" />
+                <item name="Images" type="9fbbdea:ServiceModel$ServiceNode" />
+              </path>
+            </expand>
+            <select />
+          </treeState>
+          <option name="isSelected" value="true" />
+          <option name="viewType" value="contributor" />
+          <option name="roots">
+            <list>
+              <ServiceState>
+                <option name="contributor" value="com.intellij.docker.view.DockerServiceViewContributor" />
+              </ServiceState>
+            </list>
+          </option>
+        </serviceView>
+      </list>
     </option>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -187,5 +212,59 @@
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
     <proxy>direct</proxy>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="559" y="205" key="#Docker" timestamp="1579024855406">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="559" y="205" key="#Docker/0.0.1920.1080/-1440.0.1440.900@0.0.1920.1080" timestamp="1579024855406" />
+    <state x="424" y="202" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1579074965814">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="424" y="202" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080/-1440.0.1440.900@0.0.1920.1080" timestamp="1579074965814" />
+    <state x="714" y="312" key="EnvironmentVariablesDialog" timestamp="1579070672677">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="714" y="312" key="EnvironmentVariablesDialog/0.0.1920.1080/-1440.0.1440.900@0.0.1920.1080" timestamp="1579070672677" />
+    <state width="1878" height="375" key="GridCell.Tab.0.bottom" timestamp="1579075477148">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="375" key="GridCell.Tab.0.bottom/0.0.1920.1080/-1440.0.1440.900@0.0.1920.1080" timestamp="1579075477148" />
+    <state width="1878" height="375" key="GridCell.Tab.0.center" timestamp="1579075477145">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="375" key="GridCell.Tab.0.center/0.0.1920.1080/-1440.0.1440.900@0.0.1920.1080" timestamp="1579075477145" />
+    <state width="1878" height="375" key="GridCell.Tab.0.left" timestamp="1579075477143">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="375" key="GridCell.Tab.0.left/0.0.1920.1080/-1440.0.1440.900@0.0.1920.1080" timestamp="1579075477143" />
+    <state width="1878" height="375" key="GridCell.Tab.0.right" timestamp="1579075477147">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="375" key="GridCell.Tab.0.right/0.0.1920.1080/-1440.0.1440.900@0.0.1920.1080" timestamp="1579075477147" />
+    <state width="1878" height="375" key="GridCell.Tab.1.bottom" timestamp="1579075477153">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="375" key="GridCell.Tab.1.bottom/0.0.1920.1080/-1440.0.1440.900@0.0.1920.1080" timestamp="1579075477153" />
+    <state width="1878" height="375" key="GridCell.Tab.1.center" timestamp="1579075477151">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="375" key="GridCell.Tab.1.center/0.0.1920.1080/-1440.0.1440.900@0.0.1920.1080" timestamp="1579075477151" />
+    <state width="1878" height="375" key="GridCell.Tab.1.left" timestamp="1579075477149">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="375" key="GridCell.Tab.1.left/0.0.1920.1080/-1440.0.1440.900@0.0.1920.1080" timestamp="1579075477149" />
+    <state width="1878" height="375" key="GridCell.Tab.1.right" timestamp="1579075477152">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="375" key="GridCell.Tab.1.right/0.0.1920.1080/-1440.0.1440.900@0.0.1920.1080" timestamp="1579075477152" />
+    <state x="469" y="179" key="SettingsEditor" timestamp="1579024821081">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="469" y="179" key="SettingsEditor/0.0.1920.1080/-1440.0.1440.900@0.0.1920.1080" timestamp="1579024821081" />
+    <state x="640" y="175" width="639" height="729" key="find.popup" timestamp="1579122438890">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="640" y="175" width="639" height="729" key="find.popup/0.0.1920.1080/-1440.0.1440.900@0.0.1920.1080" timestamp="1579122438890" />
   </component>
 </project>

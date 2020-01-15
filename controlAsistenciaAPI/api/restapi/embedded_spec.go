@@ -56,10 +56,10 @@ func init() {
             "schema": {
               "type": "object",
               "required": [
-                "codigo_usuario"
+                "code"
               ],
               "properties": {
-                "codigo_usuario": {
+                "code": {
                   "type": "string",
                   "maxLength": 7,
                   "minLength": 7
@@ -106,10 +106,10 @@ func init() {
             "schema": {
               "type": "object",
               "required": [
-                "codigo_usuario"
+                "code"
               ],
               "properties": {
-                "codigo_usuario": {
+                "code": {
                   "type": "string",
                   "maxLength": 7,
                   "minLength": 7
@@ -178,10 +178,10 @@ func init() {
             "schema": {
               "type": "object",
               "required": [
-                "codigo_usuario"
+                "code"
               ],
               "properties": {
-                "codigo_usuario": {
+                "code": {
                   "type": "string",
                   "maxLength": 7,
                   "minLength": 7
@@ -228,10 +228,10 @@ func init() {
             "schema": {
               "type": "object",
               "required": [
-                "codigo_usuario"
+                "code"
               ],
               "properties": {
-                "codigo_usuario": {
+                "code": {
                   "type": "string",
                   "maxLength": 7,
                   "minLength": 7

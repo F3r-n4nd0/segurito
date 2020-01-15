@@ -49,7 +49,7 @@ func (r repositorioEventosMongoDB) ListaDeEventos(ctx context.Context, usuarioID
 	var events = make([]modelos.Evento, 0)
 	for result.Next(context.TODO()) {
 		eventDB := EventoMongoDB{}
-		err = result.Decode(eventDB)
+		err = result.Decode(&eventDB)
 		if err != nil {
 			return nil, err
 		}
@@ -73,10 +73,14 @@ func (r repositorioEventosMongoDB) EstadoUsuario(ctx context.Context, usuarioID 
 		return modelos.EstadoAsistenciaNoRegistrado, nil
 	}
 	evento := EventoMongoDB{}
-	err := result.Decode(evento)
+	err := result.Decode(&evento)
 	if err != nil {
+		if err.Error() == "mongo: no documents in result" {
+			return modelos.EstadoAsistenciaNoRegistrado, nil
+		}
 		return modelos.EstadoAsistenciaNoRegistrado, err
 	}
+
 	switch evento.Tipo {
 	case string(modelos.EntradaTipoEvento):
 		return modelos.EstadoAsistenciaTrabajando, nil

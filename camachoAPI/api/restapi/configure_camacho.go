@@ -5,8 +5,15 @@ package restapi
 import (
 	"camachoAPI/api/models"
 	"camachoAPI/consultaEventos"
+	"camachoAPI/modelos"
+	"camachoAPI/repositorio"
+	"context"
 	"crypto/tls"
+	"log"
 	"net/http"
+	"os"
+
+	"github.com/go-openapi/strfmt"
 
 	errors "github.com/go-openapi/errors"
 	runtime "github.com/go-openapi/runtime"
@@ -35,17 +42,67 @@ func configureAPI(api *operations.CamachoAPI) http.Handler {
 
 	api.JSONProducer = runtime.JSONProducer()
 
-	consultaEventos.NuevoCasoDeUsoConsultaEventos(2)
+	mongoDBURL := getenv("MONGO_DB_URL", "mongodb://localhost:27017")
+
+	repositoryEvents := repositorio.NuevoRepositorioEventosMongoDB(mongoDBURL)
+
+	casoDeUseConsulta := consultaEventos.NuevoCasoDeUsoConsultaEventos(2, repositoryEvents)
 
 	api.ConsultarEstadoHandler = operations.ConsultarEstadoHandlerFunc(func(params operations.ConsultarEstadoParams) middleware.Responder {
-
+		estado, err := casoDeUseConsulta.ConsultarEstado(context.Background(), params.IDUsuario)
+		if err != nil {
+			log.Print(err.Error())
+			return operations.NewConsultarEstadoBadRequest()
+		}
+		switch estado {
+		case modelos.EstadoAsistenciaTrabajando:
+			return operations.NewConsultarEstadoOK().WithPayload(&operations.ConsultarEstadoOKBody{
+				Estado: models.EstadoUsuarioTrabajando,
+			})
+		case modelos.EstadoAsistenciaDescanso:
+			return operations.NewConsultarEstadoOK().WithPayload(&operations.ConsultarEstadoOKBody{
+				Estado: models.EstadoUsuarioDescanso,
+			})
+		case modelos.EstadoAsistenciaNoRegistrado:
+			return operations.NewConsultarEstadoOK().WithPayload(&operations.ConsultarEstadoOKBody{
+				Estado: models.EstadoUsuarioNoRegistrado,
+			})
+		}
 		return operations.NewConsultarEstadoOK().WithPayload(&operations.ConsultarEstadoOKBody{
-			Estado: models.EstadoUsuarioTrabajando,
+			Estado: models.EstadoUsuarioNoRegistrado,
 		})
 	})
 
 	api.TraerEventosHandler = operations.TraerEventosHandlerFunc(func(params operations.TraerEventosParams) middleware.Responder {
-		return operations.NewTraerEventosOK()
+		eventos, err := casoDeUseConsulta.ConsultarEventos(context.Background(), params.IDUsuario)
+		if err != nil {
+			log.Print(err.Error())
+			return operations.NewTraerEventosBadRequest()
+		}
+
+		listEvents := make([]*models.Eventos, 0)
+
+		for _, element := range eventos {
+			eventDate := strfmt.DateTime(element.Fecha)
+			eventId := strfmt.UUID(element.ID)
+			var eventType models.TipoEvento
+			switch element.Tipo {
+			case modelos.EntradaTipoEvento:
+				eventType = models.TipoEventoEntrada
+			case modelos.SalidaTipoEvento:
+				eventType = models.TipoEventoSalida
+			}
+			newEvent := models.Eventos{
+				Fecha:   &eventDate,
+				ID:      &eventId,
+				Tipo:    eventType,
+				Usuario: &element.NombreUsuario,
+			}
+			listEvents = append(listEvents, &newEvent)
+		}
+
+		return operations.NewTraerEventosOK().WithPayload(listEvents)
+
 	})
 
 	api.ServerShutdown = func() {}
@@ -74,5 +131,20 @@ func setupMiddlewares(handler http.Handler) http.Handler {
 // The middleware configuration happens before anything, this middleware also applies to serving the swagger.json document.
 // So this is a good place to plug in a panic handling middleware, logging and metrics
 func setupGlobalMiddleware(handler http.Handler) http.Handler {
-	return handler
+	return uiMiddleware(handler)
+}
+
+func uiMiddleware(handler http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		log.Print(r.URL.Path)
+		handler.ServeHTTP(w, r)
+	})
+}
+
+func getenv(key, fallback string) string {
+	value := os.Getenv(key)
+	if len(value) == 0 {
+		return fallback
+	}
+	return value
 }

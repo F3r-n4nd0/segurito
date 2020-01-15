@@ -3,27 +3,33 @@ services:
 
   rabbit_mq:
     image: rabbitmq 
-    hostname: rabbit_mq
+    ports: 
+      - "5672:5672"
+    logging:
+      driver: none
 
-  mongo:
+  mongodb:
     image: mongo
-    hostname: mongodb-server
+    ports: 
+      - "27017:27017"
+    logging:
+      driver: none
 
   camacho_api:
     build: ./camachoAPI
-    hostname: camacho-api
     environment:
-      PORT: '8080'
+      PORT: '9090'
       HOST: '0.0.0.0'
+      MONGO_DB_URL: 'mongodb://mongodb:27017'
     links:
-      - mongo
+      - mongodb
     ports:
-      - '9090:8080'
+      - '9090:9090'
 
   evo:
     build: https://github.com/wilsoncrespo/segurito-evo.git
     environment: 
-      swagger.assistance.control.url: https://control-asistencia-server/F3rn4nd0/ControlAsistencia/1.0.0/
+      swagger.assistance.control.url: http://control_asistencia:8080/F3rn4nd0/ControlAsistencia/1.0.0/
     links:
       - control_asistencia
     ports:
@@ -31,22 +37,37 @@ services:
       
   control_asistencia:
     build: ./controlAsistenciaAPI
-    hostname: control-asistencia-server
     environment:
       PORT: '8080'
       HOST: '0.0.0.0'
       MESA_PATH: './mocks/'
-      MONGO_DB_URL: 'mongodb://mongodb-server:27017'
+      MONGO_DB_URL: 'mongodb://mongodb:27017'
       RABBIT_MQ_HOST: 'rabbit_mq'
       RABBIT_MQ_PORT: '5672'
-      CAMACHO_API_HOST: camacho-api:8080
-    command: 
-      ["./scripts/wait_for_rabbitmq.sh", "control-asistencia-server"]
+      CAMACHO_API_HOST: camacho_api:9090
+    command: >
+      bash -c "scripts/generate_mesa_mock.sh
+      && scripts/wait_for_rabbitmq.sh control-asistencia-server"
     links:
-      - mongo
+      - mongodb
       - rabbit_mq
+      - camacho_api
     depends_on:
-      - mongo
+      - mongodb
       - rabbit_mq
     ports:
       - '8080:8080'
+
+  pumari:
+    build: ./pumari
+    environment:
+      PUMARI_PATH: './mocks/'
+      RABBIT_MQ_HOST: 'rabbit_mq'
+      RABBIT_MQ_PORT: '5672'
+    command: >
+      bash -c "scripts/generate_pumari_mock.sh
+      && scripts/wait_for_rabbitmq.sh cmd"
+    links:
+      - rabbit_mq
+    depends_on:
+      - rabbit_mq
